@@ -1,7 +1,7 @@
-require "./Person.rb"
+require './Person'
 
 class Student < Person
-  def initialize (clasroom)
+  def initialize(clasroom)
     super()
     @clasroom = clasroom
   end

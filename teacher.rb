@@ -1,4 +1,4 @@
-require "./Person.rb"
+require './Person'
 
 class Teacher < Person
   def initialize(specialization)
