@@ -2,11 +2,13 @@
 
 # ruby-school-library
 
-> School library app.
+> School library app based on the following diagram.
+
+![](./assets/uml_class_diagram.png)
 
 ## Built With
 
-- https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white
+- ![](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)
 
 
 ## Getting Started
