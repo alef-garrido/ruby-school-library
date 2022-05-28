@@ -66,6 +66,18 @@ class App
     end
   end
 
+  def create_book
+    print 'Title: '
+    book_title = gets.chomp
+    print 'Author: '
+    book_author = gets.chomp
+
+    new_book = Book.new(book_title, book_author)
+    puts 'Book created successfully' if new_book.instance_of?(Book)
+    books << new_book unless books.include?(new_book)
+  end
+
+
   def option_run(input)
     case input
     when 1
