@@ -35,7 +35,7 @@ class App
 
   def can_create_rental?
     if @books.empty?
-      puts 'No items to show, add a rental.'
+      puts 'No items to show, add a book.'
       return false
     end
     if @people.empty?
