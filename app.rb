@@ -39,13 +39,13 @@ class App
       return false
     end
     if @people.empty?
-      puts 'No names'
+      puts 'No names on the list'
       return false
     end
     true
   end
 
-  def add_rental(date, index_person, index_book)
+  def create_rental(date, index_person, index_book)
     @rentals.push(Rental.new(date, @people[index_person], @books[index_book]))
   end
 

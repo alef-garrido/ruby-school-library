@@ -88,7 +88,7 @@ def create_rental(app)
   puts 'Date (yyyy/mm/dd):'
   date = gets.chomp
   if valid_date(date)
-    app.add_rental(date, index_person, index_book)
+    app.create_rental(date, index_person, index_book)
     puts 'Rental created successfully'
     return
   end
