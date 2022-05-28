@@ -98,6 +98,17 @@ class App
     selected_book.rentals << new_rental unless selected_book.rentals.include?(new_rental)
   end
 
+  def list_rentals_by_id
+    list_all_people
+    print 'ID of person: '
+    selected_person_id = gets.chomp.to_i
+    selected_person = people.select { |person| person.id == selected_person_id }
+    puts 'Rentals: '
+    selected_person[0].rentals.each do |rental|
+      puts "Date: #{rental.date}, Book: #{rental.book.title}, Person: #{rental.person.name}"
+    end
+  end
+
   def option_run(input)
     case input
     when 1
