@@ -27,7 +27,7 @@ class App
   def select_person
     puts 'Select a person'
     @people.each_with_index do |person, index|
-      print "> #{index +1 }) #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
+      print "> #{index + 1}) #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
       puts "> Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     gets.chomp.to_i
