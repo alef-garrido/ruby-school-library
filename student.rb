@@ -1,12 +1,16 @@
 require './Person'
 
 class Student < Person
-  def initialize(clasroom)
-    super()
-    @clasroom = clasroom
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super(age, name, parent_permission: parent_permission)
   end
 
   def play_hooky
     "¯\(ツ)/¯"
+  end
+
+  def add_classroom(classroom)
+    @classroom = classroom
+    classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
