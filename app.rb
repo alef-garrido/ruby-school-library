@@ -2,8 +2,9 @@ require_relative 'book'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
-require_relative 'rental'
 require_relative 'classroom'
+require_relative 'capitalize_decorator'
+require_relative 'trimmer_decorator'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -31,7 +32,7 @@ class App
     @books.each { |book| puts "Title: #{book.title} by Author: #{book.author}" }
   end
 
-  def select_person_from_list
+  def select_person
     puts 'Select a person'
     @people.each_with_index do |person, index|
       print "#{index}) #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
@@ -40,7 +41,7 @@ class App
     gets.chomp.to_i
   end
 
-  def list_people
+  def list_all_people
     if @people.empty?
       puts 'No entries. Add one.'
       return

@@ -61,7 +61,7 @@ def create_book(app)
   title = gets.chomp
   print 'Author: '
   author = gets.chomp
-  app.create_book(title, author)
+  app.add_book(title, author)
   puts 'Book created successfully'
 end
 
@@ -75,12 +75,12 @@ end
 def create_rental(app)
   return unless app.can_create_rental?
 
-  index_book = app.select_book_from_list
+  index_book = app.select_book
   if index_book.negative? || index_book >= app.books.length
     puts 'Invalid selection'
     return
   end
-  index_person = app.select_person_from_list
+  index_person = app.select_person
   if index_person.negative? || index_person >= app.people.length
     puts 'Invalid selection'
     return
@@ -88,7 +88,7 @@ def create_rental(app)
   puts 'Date (yyyy/mm/dd):'
   date = gets.chomp
   if valid_date(date)
-    app.create_rental(date, index_person, index_book)
+    app.add_rental(date, index_person, index_book)
     puts 'Rental created successfully'
     return
   end
@@ -99,15 +99,15 @@ def run(app)
   loop do
     case main_menu
     when 1
-      app.list_books
+      app.list_all_books
     when 2
-      app.list_people
+      app.list_all_people
     when 3
-      create_person(app)
+      add_person(app)
     when 4
-      create_book(app)
+      add_book(app)
     when 5
-      create_rental(app)
+      add_rental(app)
     when 6
       app.list_rentals
     else
