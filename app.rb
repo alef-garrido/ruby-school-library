@@ -19,7 +19,7 @@ class App
   def select_book
     puts 'Select a book'
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title} Author: #{book.author} "
+      puts "> #{index + 1}) Title: #{book.title} Author: #{book.author} "
     end
     gets.chomp.to_i
   end
@@ -27,19 +27,19 @@ class App
   def select_person
     puts 'Select a person'
     @people.each_with_index do |person, index|
-      print "#{index}) #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
-      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      print "> #{index +1 }) #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
+      puts "> Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     gets.chomp.to_i
   end
 
   def can_create_rental?
     if @books.empty?
-      puts 'No items to show, add a book.'
+      puts '> No items to show, add a book.'
       return false
     end
     if @people.empty?
-      puts 'No names on the list'
+      puts '> No names on the list'
       return false
     end
     true
@@ -51,7 +51,7 @@ class App
 
   def list_rentals_by_id
     if @rentals.empty?
-      puts 'No Rentals to show'
+      puts '> No Rentals to show'
       return
     end
     print 'ID of person: '
@@ -71,10 +71,10 @@ class App
 
   def list_all_books
     if @books.empty?
-      puts 'There are no books to show'
+      puts '> There are no books to show'
       return
     end
-    @books.each { |book| puts "Title: #{book.title} by Author: #{book.author}" }
+    @books.each { |book| puts "> Title: #{book.title} by Author: #{book.author}" }
   end
 
   def list_all_people
@@ -85,7 +85,7 @@ class App
     @people.each do |person|
       print '[Teacher] ' if person.is_a?(Teacher)
       print '[Student] ' if person.is_a?(Student)
-      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "> Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
 

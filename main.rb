@@ -17,7 +17,7 @@ def create_person(app)
     age, name, permission = student_info
     app.add_student(age, name, permission)
   end
-  puts 'Person created successfully'
+  puts '> Person created successfully'
 end
 
 def main_menu
@@ -62,7 +62,7 @@ def create_book(app)
   print 'Author: '
   author = gets.chomp
   app.add_book(title, author)
-  puts 'Book created successfully'
+  puts '> Book created successfully'
 end
 
 def valid_date(date)
@@ -77,7 +77,7 @@ def create_rental(app)
 
   index_book = app.select_book
   if index_book.negative? || index_book >= app.books.length
-    puts 'Invalid selection'
+    puts '> Invalid selection'
     return
   end
   index_person = app.select_person
@@ -89,10 +89,10 @@ def create_rental(app)
   date = gets.chomp
   if valid_date(date)
     app.create_rental(date, index_person, index_book)
-    puts 'Rental created successfully'
+    puts '> Rental created successfully'
     return
   end
-  puts 'Invalid date'
+  puts '> Invalid date'
 end
 
 def run(app)
@@ -111,7 +111,7 @@ def run(app)
     when 6
       app.list_rentals_by_id
     else
-      puts 'Thanks for using this app!'
+      puts '> Thanks for using this app!'
       return
     end
   end
