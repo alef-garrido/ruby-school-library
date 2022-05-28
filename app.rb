@@ -1,7 +1,9 @@
 require_relative 'book'
+require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rental'
+require_relative 'classroom'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -10,6 +12,7 @@ class App
     @people = []
     @books = []
     @rentals = []
+    @classroom = 
   end
 
   def list_all_books
