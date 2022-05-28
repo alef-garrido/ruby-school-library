@@ -77,6 +77,26 @@ class App
     books << new_book unless books.include?(new_book)
   end
 
+  def create_rental
+    puts "\nSelect a book from the following list by number:"
+    list_all_books
+    selected_book_index = gets.chomp.to_i
+    selected_book = books[selected_book_index - 1]
+
+    puts "\nSelect a person from the following list by number (not id):"
+    list_all_people
+    selected_person_index = gets.chomp.to_i
+    selected_person = people[selected_person_index - 1]
+
+    print 'Date: '
+    rental_date = gets.chomp
+
+    new_rental = Rental.new(rental_date, selected_person, selected_book)
+    puts 'Rental created successfully' if new_rental.instance_of?(Rental)
+    rentals << new_rental unless rentals.include?(new_rental)
+    selected_person.rentals << new_rental unless selected_person.rentals.include?(new_rental)
+    selected_book.rentals << new_rental unless selected_book.rentals.include?(new_rental)
+  end
 
   def option_run(input)
     case input
