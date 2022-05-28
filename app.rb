@@ -24,14 +24,6 @@ class App
     gets.chomp.to_i
   end
 
-  def list_all_books
-    if @books.empty?
-      puts 'There are no books to show'
-      return
-    end
-    @books.each { |book| puts "Title: #{book.title} by Author: #{book.author}" }
-  end
-
   def select_person
     puts 'Select a person'
     @people.each_with_index do |person, index|
@@ -39,30 +31,6 @@ class App
       puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     gets.chomp.to_i
-  end
-
-  def list_all_people
-    if @people.empty?
-      puts 'No entries. Add one.'
-      return
-    end
-    @people.each do |person|
-      print '[Teacher] ' if person.is_a?(Teacher)
-      print '[Student] ' if person.is_a?(Student)
-      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-  end
-
-  def add_teacher(age, name, specialization)
-    @people.push(Teacher.new(age, specialization, name))
-  end
-
-  def add_student(age, name, permission)
-    @people.push(Student.new(age, @classroom, name, parent_permission: permission))
-  end
-
-  def add_book(title, author)
-    @books.push(Book.new(title, author))
   end
 
   def can_create_rental?
@@ -95,5 +63,37 @@ class App
         puts("Book \"#{rental.book.title}\" by #{rental.book.author} ")
       end
     end
+  end
+
+  def add_book(title, author)
+    @books.push(Book.new(title, author))
+  end
+
+  def list_all_books
+    if @books.empty?
+      puts 'There are no books to show'
+      return
+    end
+    @books.each { |book| puts "Title: #{book.title} by Author: #{book.author}" }
+  end
+
+  def list_all_people
+    if @people.empty?
+      puts 'No entries. Add one.'
+      return
+    end
+    @people.each do |person|
+      print '[Teacher] ' if person.is_a?(Teacher)
+      print '[Student] ' if person.is_a?(Student)
+      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+  end
+
+  def add_teacher(age, name, specialization)
+    @people.push(Teacher.new(age, specialization, name))
+  end
+
+  def add_student(age, name, permission)
+    @people.push(Student.new(age, @classroom, name, parent_permission: permission))
   end
 end

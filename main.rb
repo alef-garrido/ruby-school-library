@@ -103,13 +103,13 @@ def run(app)
     when 2
       app.list_all_people
     when 3
-      add_person(app)
+      create_person(app)
     when 4
-      add_book(app)
+      create_book(app)
     when 5
-      add_rental(app)
+      create_rental(app)
     when 6
-      app.list_rentals
+      app.list_rentals_by_id
     else
       puts 'Thanks for using this app!'
       return
