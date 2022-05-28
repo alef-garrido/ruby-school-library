@@ -32,10 +32,23 @@ class App
       puts "#{index + 1} Title: #{book.title} by Author: #{book.author}"
   end
 
-  def list_all_people
-    puts "Select Person"
+  def select_person_from_list
+    puts 'Select a person'
     @people.each_with_index do |person, index|
-      print "#{index + 1} #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
+      print "#{index}) #{person.is_a?(Teacher) ? '[Teacher]' : '[Student]'} "
+      puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    gets.chomp.to_i
+  end
+
+  def list_people
+    if @people.empty?
+      puts 'No entries'
+      return
+    end
+    @people.each do |person|
+      print '[Teacher] ' if person.is_a?(Teacher)
+      print '[Student] ' if person.is_a?(Student)
       puts "Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
@@ -120,25 +133,6 @@ class App
     puts 'Rentals: '
     selected_person[0].rentals.each do |rental|
       puts "Date: #{rental.date}, Book: #{rental.book.title}, Person: #{rental.person.name}"
-    end
-  end
-
-  def option_run(input)
-    case input
-    when 1
-      list_all_books
-    when 2
-      list_all_people
-    when 3
-      create_person
-    when 4
-      create_book
-    when 5
-      create_rental
-    when 6
-      list_rentals_by_id
-    else
-      puts 'Wrong value. Verify selection'
     end
   end
 end
