@@ -31,6 +31,7 @@ def main_menu
     puts '5.- Create a rental'
     puts '6.- List all rentals for a given person id'
     puts '7.- Exit'
+    puts '------------------------------------------------ \n'
     option = gets.chomp.to_i
     return option if option >= 1 && option < 8
   end
